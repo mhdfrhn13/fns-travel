@@ -1,16 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
-// Daftar gambar
-const images = [
-  "/assets/foto1.jpg",
-  "/assets/foto2.jpg",
-  "/assets/foto3.jpg",
-  "/assets/foto4.jpg",
-  "/assets/foto5.jpg",
-  "/assets/foto6.jpg",
-  "/assets/foto7.jpg",
-  "/assets/foto8.jpg",
-];
+import Popup from "../UI/Popup";
+import { galleryData } from "../../data/galleryData";
 
 const Gallery = () => {
   const containerRef = useRef(null);
@@ -95,8 +85,9 @@ const Gallery = () => {
           className="flex gap-4 overflow-x-auto scrollbar-hide py-4"
           style={{ scrollBehavior: "auto" }}
         >
-          {/* Render gambar 2x untuk efek infinite loop */}
-          {[...images, ...images].map((src, index) => (
+          {/* 2. GUNAKAN DATA DARI FILE IMPORT */}
+          {/* Kita tetap menduplikasi array [...data, ...data] agar fitur Infinite Loop bekerja */}
+          {[...galleryData, ...galleryData].map((src, index) => (
             <div
               key={index}
               className="min-w-[280px] h-[180px] rounded-lg overflow-hidden shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -119,23 +110,8 @@ const Gallery = () => {
           &#10095;
         </button>
       </div>
-
-      {/* POPUP MODAL */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button className="absolute top-5 right-5 text-white text-4xl font-bold hover:text-travel-pink">
-            &times;
-          </button>
-          <img
-            src={selectedImage}
-            alt="Popup"
-            className="max-w-full max-h-[90vh] rounded-lg shadow-2xl animate-zoom"
-          />
-        </div>
-      )}
+      {/* Ganti kode popup manual dengan ini: */}
+      <Popup src={selectedImage} onClose={() => setSelectedImage(null)} />
     </section>
   );
 };

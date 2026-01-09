@@ -59,33 +59,29 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6">
-          {[
-            "Home",
-            "About Us",
-            "Packages",
-            "Gallery",
-            "Team",
-            "Blog",
-            "Contact",
-          ].map((item) => (
-            <li key={item}>
-              {item === "Packages" ? (
-                <Link
-                  to="/packages"
-                  className="hover:underline hover:text-travel-pink transition"
-                >
-                  {item}
-                </Link>
-              ) : (
-                <a
-                  href={`/#${item.toLowerCase().replace(" ", "")}`}
-                  className="hover:underline hover:text-travel-pink transition"
-                >
-                  {item}
-                </a>
-              )}
-            </li>
-          ))}
+          {["Home", "About Us", "Packages", "Gallery", "Contact"].map(
+            (item) => (
+              <li key={item}>
+                {/* Logika Link: Jika Packages ATAU Gallery, pakai Link React Router */}
+                {item === "Packages" || item === "Gallery" ? (
+                  <Link
+                    to={`/${item.toLowerCase()}`}
+                    className="hover:underline hover:text-travel-pink transition"
+                  >
+                    {item}
+                  </Link>
+                ) : (
+                  // Selain itu pakai anchor link biasa (#)
+                  <a
+                    href={`/#${item.toLowerCase().replace(" ", "")}`}
+                    className="hover:underline hover:text-travel-pink transition"
+                  >
+                    {item}
+                  </a>
+                )}
+              </li>
+            )
+          )}
         </ul>
 
         {/* Mobile Hamburger Button */}
@@ -114,35 +110,30 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <ul className="md:hidden absolute top-[60px] left-0 w-full bg-white shadow-lg flex flex-col">
-          {[
-            "Home",
-            "About Us",
-            "Packages",
-            "Gallery",
-            "Team",
-            "Blog",
-            "Contact",
-          ].map((item) => (
-            <li key={item} className="border-b border-gray-200">
-              {item === "Packages" ? (
-                <Link
-                  to="/packages"
-                  className="block py-3 px-4 text-gray-800 hover:bg-gray-100"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              ) : (
-                <a
-                  href={`/#${item.toLowerCase().replace(" ", "")}`}
-                  className="block py-3 px-4 text-gray-800 hover:bg-gray-100"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              )}
-            </li>
-          ))}
+          {["Home", "About Us", "Packages", "Gallery", "Contact"].map(
+            (item) => (
+              <li key={item} className="border-b border-gray-200">
+                {/* Logika Mobile yang sama */}
+                {item === "Packages" || item === "Gallery" ? (
+                  <Link
+                    to={`/${item.toLowerCase()}`}
+                    className="block py-3 px-4 text-gray-800 hover:bg-gray-100"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : (
+                  <a
+                    href={`/#${item.toLowerCase().replace(" ", "")}`}
+                    className="block py-3 px-4 text-gray-800 hover:bg-gray-100"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                )}
+              </li>
+            )
+          )}
         </ul>
       )}
     </nav>

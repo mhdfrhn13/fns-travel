@@ -1,32 +1,107 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-[#343a40] text-white py-12">
-      <div className="max-w-[1000px] mx-auto px-4 flex flex-col md:flex-row justify-between gap-8">
-        <div className="md:w-[35%] text-justify">
-          <h5 className="text-xl font-bold mb-4">Info</h5>
-          <p className="text-sm leading-6">
-            FnS Tour and Travel hadir untuk mewujudkan liburan impian Anda. Kami
-            melayani paket wisata alam, budaya, dan kuliner terbaik di seluruh
-            Nusantara dengan standar pelayanan profesional.
-          </p>
+    <footer
+      id="contact"
+      className="bg-[#343a40] text-white pt-16 pb-8 border-t-4 border-travel-pink"
+    >
+      <div className="max-w-[1200px] mx-auto px-6">
+        {/* GRID CONTAINER: 1 Kolom di HP, 3 Kolom di Laptop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          {/* KOLOM 1: INFO */}
+          <div>
+            <h5 className="text-xl font-bold mb-6 text-travel-pink">
+              About FnS Travel
+            </h5>
+            <p className="text-gray-300 text-sm leading-7 text-justify">
+              FnS Tour and Travel hadir untuk mewujudkan liburan impian Anda.
+              Kami melayani paket wisata alam, budaya, dan kuliner terbaik di
+              seluruh Nusantara dengan standar pelayanan profesional dan harga
+              terbaik.
+            </p>
+          </div>
+
+          {/* KOLOM 2: CONTACT */}
+          <div>
+            <h5 className="text-xl font-bold mb-6 text-travel-pink">
+              Contact Us
+            </h5>
+            <div className="text-gray-300 text-sm space-y-4">
+              <p className="flex items-start gap-3">
+                <span className="font-bold min-w-[60px]">Address:</span>
+                <span>
+                  Jl. Kirab Remaja No.32, Bukittinggi, Sumatera Barat, Indonesia
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="font-bold min-w-[60px]">WA:</span>
+                <span>+62 853-6596-8845</span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="font-bold min-w-[60px]">Email:</span>
+                <span>fnsholiday@gmail.com</span>
+              </p>
+            </div>
+          </div>
+
+          {/* KOLOM 3: QUICK LINKS (SITEMAP) */}
+          <div>
+            <h5 className="text-xl font-bold mb-6 text-travel-pink">
+              Quick Links
+            </h5>
+            <ul className="text-sm text-gray-300 space-y-3">
+              <li>
+                <a
+                  href="/#home"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#aboutus"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/packages"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Tour Packages
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/#blog"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Blog & News
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="md:w-[20%]">
-          <h5 className="text-xl font-bold mb-4">Contact</h5>
-          <p className="text-sm leading-6">
-            Jl. Kirab Remaja No.32
-            <br />
-            Bukittinggi, Sumatera Barat
-            <br />
-            WA: +62 853-6596-8845
-            <br />
-            Email: fnsholiday@gmail.com
+        {/* COPYRIGHT */}
+        <div className="border-t border-gray-600 pt-8 text-center text-sm text-gray-400">
+          <p>
+            &copy; {new Date().getFullYear()} FnS Tour and Travel. All Rights
+            Reserved.
           </p>
         </div>
-      </div>
-
-      <div className="max-w-[1000px] mx-auto px-4 mt-8 pt-8 border-t border-gray-600 text-center">
-        <p className="text-sm">&copy; 2026 FnS Tour and Travel</p>
       </div>
     </footer>
   );

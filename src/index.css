@@ -1,29 +1,51 @@
 @import "tailwindcss";
 
 @theme {
-  /* Menambahkan warna custom */
+  /* 1. Warna Custom */
   --color-travel-pink: #c86b85;
   --color-travel-dark: #333333;
 
-  /* Menambahkan font default jika perlu */
+  /* 2. Font Default */
   --font-sans: Arial, Helvetica, sans-serif;
-}
 
-/* Reset atau style global */
-html {
-  scroll-behavior: smooth;
-}
+  /* JANGAN ADA TANDA '}' DI SINI */
 
-@layer utilities {
-  .scrollbar-hide {
-    /* Untuk Firefox */
-    scrollbar-width: none;
-    /* Untuk Internet Explorer dan Edge lama */
-    -ms-overflow-style: none;
+  /* 3. Animasi Custom */
+  --animate-fade-in: fadeIn 0.3s ease-out forwards;
+  --animate-zoom-in: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  /* Untuk Chrome, Safari, dan Opera */
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+} /* <--- TANDA KURUNG TUTUP HANYA DI SINI (Paling Bawah) */
+
+/* Utility Tambahan */
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
