@@ -83,14 +83,6 @@ const Footer = () => {
                   Gallery
                 </Link>
               </li>
-              <li>
-                <a
-                  href="/#blog"
-                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
-                >
-                  Blog & News
-                </a>
-              </li>
             </ul>
           </div>
         </div>
