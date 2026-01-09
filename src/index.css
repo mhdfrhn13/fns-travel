@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Menambahkan warna custom */
+  --color-travel-pink: #c86b85;
+  --color-travel-dark: #333333;
+
+  /* Menambahkan font default jika perlu */
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+/* Reset atau style global */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    /* Untuk Firefox */
+    scrollbar-width: none;
+    /* Untuk Internet Explorer dan Edge lama */
+    -ms-overflow-style: none;
+  }
+
+  /* Untuk Chrome, Safari, dan Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
