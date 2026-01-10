@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import ItineraryDetail from "./pages/ItineraryDetail";
 import Packages from "./pages/Packages";
 import GalleryPage from "./pages/GalleryPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -12,8 +14,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/itinerary/:slug" element={<ItineraryDetail />} />
       </Routes>
       <Footer />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Popup from "../components/UI/Popup";
 import { galleryData } from "../data/galleryData";
+import PageHeader from "../components/UI/PageHeader";
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,20 +12,16 @@ const GalleryPage = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen pb-20 pt-[100px]">
+    <div className="bg-white pb-20 pt-[80px]">
       {/* HEADER */}
-      <div className="max-w-[1200px] mx-auto px-4 mb-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-travel-dark mb-4">
-          Our Complete Gallery
-        </h1>
-        <p className="text-gray-500 italic text-lg max-w-2xl mx-auto">
-          Kumpulan momen indah dari perjalanan para traveler bersama FnS Tour
-          and Travel.
-        </p>
-      </div>
-
+      <PageHeader
+        title="Our Complete Gallery"
+        subtitle="Kumpulan momen indah dari perjalanan para traveler bersama FnS Tour and Travel."
+        image="/assets/blog1.jpg"
+      />
+      <div className="max-w-[1200px] mx-auto px-6 py-20"></div>
       {/* GRID GALLERY CONTAINER */}
-      <div className="max-w-[1200px] mx-auto px-4">
+      <div className="max-w-[1000px] mx-auto px-4">
         {/* PERHATIKAN BAGIAN INI:
            grid-cols-1 = 1 Gambar per baris (HP)
            md:grid-cols-3 = 3 Gambar per baris (Tablet/Laptop Kecil)

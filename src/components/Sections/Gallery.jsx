@@ -62,7 +62,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-12 bg-white relative">
+    <section id="gallery" className="py-20 md:py-32 bg-white relative">
       <div className="max-w-[1000px] mx-auto text-center mb-6">
         <h3 className="text-3xl font-bold border-b-4 border-travel-pink inline-block pb-2">
           Our Gallery

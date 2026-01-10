@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* 1. Warna Custom */
-  --color-travel-pink: #c86b85;
-  --color-travel-dark: #333333;
+  --color-travel-pink: #0ea5e9;
 
-  /* 2. Font Default */
-  --font-sans: Arial, Helvetica, sans-serif;
+  /* 2. Warna Teks Gelap (Lebih modern, tidak hitam pekat) */
+  --color-travel-dark: #1e293b;
+
+  /* 3. Warna Tambahan (Kuning/Emas untuk aksen jika perlu) */
+  --color-travel-gold: #f59e0b; /* Tambahan warna biru laut seperti contoh */
+
+  /* Override Font */
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
 
   /* JANGAN ADA TANDA '}' DI SINI */
 

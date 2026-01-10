@@ -112,4 +112,40 @@ export const itineraries = [
       },
     ],
   },
+  {
+    id: "yogya",
+    title: "Jelajah Keindahan Yogya",
+    image: "/assets/blog2.jpg",
+    description: "Menelusuri jejak sejarah dan budaya di jantung pulau Jawa.",
+    duration: "3 Hari 2 Malam",
+    days: [
+      {
+        day: 1,
+        title: "Kedatangan & Candi Prambanan",
+        activities: [
+          "09:00 - Penjemputan di YIA/Stasiun Tugu.",
+          "13:00 - Check-in Hotel.",
+          "15:00 - Sunset di Candi Prambanan.",
+        ],
+      },
+      {
+        day: 2,
+        title: "Borobudur & Lava Tour",
+        activities: [
+          "04:00 - Sunrise di Punthuk Setumbu.",
+          "07:00 - Candi Borobudur.",
+          "13:00 - Merapi Lava Tour dengan Jeep.",
+        ],
+      },
+      {
+        day: 3,
+        title: "Malioboro & Oleh-oleh",
+        activities: [
+          "09:00 - Belanja di Teras Malioboro.",
+          "12:00 - Pusat Bakpia Pathok.",
+          "14:00 - Transfer ke Bandara.",
+        ],
+      },
+    ],
+  },
 ];

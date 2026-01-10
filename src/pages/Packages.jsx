@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { itineraries } from "../data/itineraries";
+import PageHeader from "../components/UI/PageHeader";
+import Reveal from "../components/UI/Reveal";
 
 const Packages = () => {
   // Scroll ke atas saat halaman dibuka
@@ -10,60 +12,59 @@ const Packages = () => {
 
   return (
     <div className="bg-white pb-20 pt-[80px]">
-      {" "}
+      <PageHeader
+        title="All Tour Packages"
+        subtitle="Temukan berbagai pilihan destinasi wisata terbaik kami di seluruh
+          Nusantara."
+        image="/assets/blog1.jpg"
+      />{" "}
       {/* pt-80px agar tidak tertutup navbar fixed */}
       {/* Header Halaman */}
-      <div className="max-w-[1000px] mx-auto px-4 mb-10 text-center">
-        <h1 className="text-4xl font-bold text-travel-dark mb-4">
-          All Tour Packages
-        </h1>
-        <p className="text-gray-500 italic">
-          Temukan berbagai pilihan destinasi wisata terbaik kami di seluruh
-          Nusantara.
-        </p>
-      </div>
+      <div className="max-w-[1200px] mx-auto px-6 py-20"></div>
       {/* Grid Semua Paket */}
       <div className="max-w-[1000px] mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8">
-          {itineraries.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row h-auto md:h-[250px] border border-gray-100 hover:shadow-xl transition-shadow"
-            >
-              {/* Gambar */}
+        <Reveal>
+          <div className="grid md:grid-cols-2 gap-8">
+            {itineraries.map((item) => (
               <div
-                className="w-full md:w-1/2 h-[200px] md:h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.image})` }}
-              ></div>
+                key={item.id}
+                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row h-auto md:h-[250px] border border-gray-100 hover:shadow-xl transition-shadow"
+              >
+                {/* Gambar */}
+                <div
+                  className="w-full md:w-1/2 h-[200px] md:h-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
 
-              {/* Teks Deskripsi */}
-              <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
-                <h4 className="text-xl font-bold mb-2 text-travel-dark">
-                  <Link
-                    to={`/itinerary/${item.id}`}
-                    className="hover:text-travel-pink transition"
-                  >
-                    {item.title}
-                  </Link>
-                </h4>
-                <p className="text-sm text-gray-600 line-clamp-3 mb-4">
-                  {item.description}
-                </p>
-                <div className="mt-auto">
-                  <span className="text-xs font-semibold bg-gray-100 px-2 py-1 rounded text-gray-500 mr-2">
-                    {item.duration}
-                  </span>
-                  <Link
-                    to={`/itinerary/${item.id}`}
-                    className="text-travel-pink font-bold text-sm hover:underline"
-                  >
-                    Read More &rarr;
-                  </Link>
+                {/* Teks Deskripsi */}
+                <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+                  <h4 className="text-xl font-bold mb-2 text-travel-dark">
+                    <Link
+                      to={`/itinerary/${item.id}`}
+                      className="hover:text-travel-pink transition"
+                    >
+                      {item.title}
+                    </Link>
+                  </h4>
+                  <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+                    {item.description}
+                  </p>
+                  <div className="mt-auto">
+                    <span className="text-xs font-semibold bg-gray-100 px-2 py-1 rounded text-gray-500 mr-2">
+                      {item.duration}
+                    </span>
+                    <Link
+                      to={`/itinerary/${item.id}`}
+                      className="text-travel-pink font-bold text-sm hover:underline"
+                    >
+                      Read More &rarr;
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </div>
   );

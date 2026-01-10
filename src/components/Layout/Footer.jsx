@@ -60,14 +60,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/#aboutus"
-                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
                 <Link
                   to="/packages"
                   className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
