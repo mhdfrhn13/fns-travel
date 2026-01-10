@@ -9,7 +9,7 @@ const AboutPage = () => {
 
   return (
     // 1. Wrapper Utama: HANYA background, JANGAN kasih padding/max-width di sini
-    <div className="bg-white min-h-screen">
+    <div className="bg-white pb-20 pt-[80px]">
       {/* 2. Banner: Diletakkan PALING ATAS (Di luar container konten) */}
       <PageHeader
         title="Tentang Kami"
@@ -18,7 +18,8 @@ const AboutPage = () => {
       />
 
       {/* 3. Container Konten: Baru di sini kita kasih batas lebar (max-w) & padding (px-6) */}
-      <div className="max-w-[1200px] mx-auto px-6 py-20 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 py-20"></div>
+      <div className="max-w-[1000px] mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <Reveal direction="left">
             <div className="relative group">

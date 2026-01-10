@@ -52,12 +52,20 @@ const Footer = () => {
             </h5>
             <ul className="text-sm text-gray-300 space-y-3">
               <li>
-                <a
-                  href="/#home"
+                <Link
+                  to="/#home"
                   className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
                 >
                   Home
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Tentang Kami
+                </Link>
               </li>
               <li>
                 <Link
@@ -73,6 +81,14 @@ const Footer = () => {
                   className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
                 >
                   Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-travel-pink hover:translate-x-2 transition-all inline-block"
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
