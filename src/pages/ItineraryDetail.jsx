@@ -196,7 +196,7 @@ const ItineraryDetail = () => {
         {/* CTA Button */}
         <div className="mt-12 text-center pb-10">
           <a
-            href={`https://wa.me/62853659688453?text=Halo%2C%20saya%20tertarik%20booking%20paket%20${data.title}`}
+            href={`https://wa.me/6285365968845?text=Halo%2C%20saya%20tertarik%20booking%20paket%20${data.title}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 bg-travel-pink text-white text-lg font-bold py-4 px-12 rounded-full shadow-lg hover:bg-pink-700 hover:-translate-y-1 transition-all"
