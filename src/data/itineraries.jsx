@@ -1,41 +1,68 @@
 export const itineraries = [
   {
-    id: "bromo",
-    title: "Jelajah Keindahan Bromo",
-    image: "/assets/blog1.jpg", // Pastikan gambar ada di public/assets
+    id: "FNS-PDGBKT0302",
+    title: "PADANG - BUKITTINGGI - 3H2M",
+    image: "/assets/alahanpanjang.jpg", // Pastikan gambar ada di public/assets
     description:
       "Nikmati pengalaman tak terlupakan mengejar matahari terbit di salah satu gunung terindah di Indonesia.",
     duration: "3 Hari 2 Malam",
+    price: "Rp 3.500.000 / pax",
+    includes: [
+      "Transportasi PP (Full AC)",
+      "Jeep 4x4 Bromo",
+      "Tiket Masuk Wisata Domestik",
+      "Hotel 1 Malam di Bromo",
+      "Makan Sesuai Program",
+      "Driver sebagai Guide",
+    ],
+    excludes: [
+      "Tiket Pesawat/Kereta",
+      "Pengeluaran Pribadi",
+      "Tipping Driver/Guide",
+      "Sewa Jaket/Kuda di Bromo",
+    ],
     days: [
       {
         day: 1,
-        title: "Penjemputan & Menuju Desa Cemoro Lawang",
+        title: "Airport - Air Terjun - Bukittinggi (L, D)",
+        image: "/assets/pagaruyung.jpg",
         activities: [
-          "09:00 - Penjemputan di Bandara/Stasiun Malang atau Surabaya.",
-          "12:00 - Makan siang kuliner lokal.",
-          "15:00 - Check-in penginapan di area Cemoro Lawang.",
-          "17:00 - Menikmati sunset tipis di area sekitar penginapan.",
+          "Penjemputan di Bandara Internasional Minangkabau (BIM).",
+          "Menuju Air Terjun Lembah Anai (Maskot pariwisata Sumbar di pinggir jalan).",
+          "Mengunjungi PDIKM (Pusat Dokumentasi & Informasi Kebudayaan Minangkabau) di Padang Panjang",
+          "Makan Siang: Sate Mak Syukur (Wajib/Legendaris) atau Rumah Makan Pak Datuk.",
+          "Desa Pandai Sikek: Pusat kerajinan tenun & ukiran kayu (Shopping stop).",
+          "Check-in hotel di Bukittinggi.",
+          "Makan Malam & Free Program (Jalan-jalan di area Jam Gadang).",
         ],
       },
       {
         day: 2,
         title: "Golden Sunrise & Kawah Bromo",
+        image: "/assets/lembah-harau.jpg",
         activities: [
-          "02:30 - Persiapan & penjemputan Jeep 4x4.",
-          "04:30 - Menunggu Golden Sunrise di Penanjakan 1.",
-          "06:00 - Menuju Kawah Bromo & Pura Luhur Poten.",
-          "08:00 - Padang Savana (Bukit Teletubbies) & Pasir Berbisik.",
-          "10:00 - Kembali ke hotel, sarapan, dan istirahat.",
+          "Sarapan & Check-out hotel.",
+          "Taman Panorama Ngarai Sianok & Lobang Jepang.",
+          "Menuju Jembatan Kelok 9 (Ikon infrastruktur megah).",
+          "Lembah Harau (Pemandangan tebing & sawah).",
+          "1Makan Siang di Pondok Flora (Ikan bakar khas).",
+          "Menuju Bromo via Pasuruan.",
+          "Istana Basa Pagaruyung (Batusangkar).",
+          "Menuju Kota Padang via Danau Singkarak.",
+          "Makan Malam di Pondok Ikan Bakar tepi pantai Padang.",
+          "Check-in hotel di Padang.",
         ],
       },
       {
         day: 3,
         title: "Air Terjun Madakaripura & Pulang",
+        image: "/assets/alahanpanjang.jpg",
         activities: [
-          "08:00 - Check-out penginapan.",
-          "09:00 - Mengunjungi Air Terjun Madakaripura (Opsional).",
-          "13:00 - Pengantaran kembali ke Bandara/Stasiun.",
-          "15:00 - Trip Selesai.",
+          "Sarapan & Check-out hotel.",
+          "Jembatan Siti Nurbaya & Kota Tua Padang.",
+          "Masjid Raya Sumatera Barat (Masjid dengan arsitektur atap gonjong).",
+          "Belanja Oleh-oleh Khas (Keripik Balado Christine Hakim/Shirley).",
+          "Pengantaran ke Airport (BIM). Tour Selesai.",
         ],
       },
     ],
@@ -46,6 +73,20 @@ export const itineraries = [
     image: "/assets/blog2.jpg",
     description: "Menelusuri jejak sejarah dan budaya di jantung pulau Jawa.",
     duration: "3 Hari 2 Malam",
+    includes: [
+      "Transportasi PP (Full AC)",
+      "Jeep 4x4 Bromo",
+      "Tiket Masuk Wisata Domestik",
+      "Hotel 1 Malam di Bromo",
+      "Makan Sesuai Program",
+      "Driver sebagai Guide",
+    ],
+    excludes: [
+      "Tiket Pesawat/Kereta",
+      "Pengeluaran Pribadi",
+      "Tipping Driver/Guide",
+      "Sewa Jaket/Kuda di Bromo",
+    ],
     days: [
       {
         day: 1,
@@ -82,6 +123,20 @@ export const itineraries = [
     image: "/assets/blog2.jpg",
     description: "Menelusuri jejak sejarah dan budaya di jantung pulau Jawa.",
     duration: "3 Hari 2 Malam",
+    includes: [
+      "Transportasi PP (Full AC)",
+      "Jeep 4x4 Bromo",
+      "Tiket Masuk Wisata Domestik",
+      "Hotel 1 Malam di Bromo",
+      "Makan Sesuai Program",
+      "Driver sebagai Guide",
+    ],
+    excludes: [
+      "Tiket Pesawat/Kereta",
+      "Pengeluaran Pribadi",
+      "Tipping Driver/Guide",
+      "Sewa Jaket/Kuda di Bromo",
+    ],
     days: [
       {
         day: 1,
@@ -118,6 +173,20 @@ export const itineraries = [
     image: "/assets/blog2.jpg",
     description: "Menelusuri jejak sejarah dan budaya di jantung pulau Jawa.",
     duration: "3 Hari 2 Malam",
+    includes: [
+      "Transportasi PP (Full AC)",
+      "Jeep 4x4 Bromo",
+      "Tiket Masuk Wisata Domestik",
+      "Hotel 1 Malam di Bromo",
+      "Makan Sesuai Program",
+      "Driver sebagai Guide",
+    ],
+    excludes: [
+      "Tiket Pesawat/Kereta",
+      "Pengeluaran Pribadi",
+      "Tipping Driver/Guide",
+      "Sewa Jaket/Kuda di Bromo",
+    ],
     days: [
       {
         day: 1,

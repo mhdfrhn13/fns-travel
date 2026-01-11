@@ -33,7 +33,7 @@ const Hero = () => {
 
         {/* Tombol: Dibuat Rounded Full agar sesuai tema modern */}
         <a
-          href="#aboutus"
+          href="#blog"
           className="inline-block font-sans font-medium bg-travel-pink text-white px-10 py-4 rounded-full hover:bg-pink-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 text-sm md:text-base tracking-widest"
         >
           EXPLORE MORE

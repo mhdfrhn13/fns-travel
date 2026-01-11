@@ -1,116 +1,100 @@
-import { useEffect, useRef, useState } from "react";
-import Popup from "../UI/Popup";
+import React, { useState } from "react";
 import { galleryData } from "../../data/galleryData";
+import Popup from "../UI/Popup";
+import { Link } from "react-router-dom";
+
+// 1. Import Komponen Swiper React
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// 2. Import CSS Swiper (Wajib)
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// 3. Import Modul yang dibutuhkan (Autoplay & Pagination)
+import { Autoplay, Pagination } from "swiper/modules";
 
 const Gallery = () => {
-  const containerRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Ref untuk status "sedang scroll" (mencegah spam)
-  const isAnimating = useRef(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Setup posisi awal di tengah
-    // Timeout kecil memastikan gambar sudah punya ukuran sebelum dihitung
-    setTimeout(() => {
-      container.scrollLeft = container.scrollWidth / 2;
-    }, 100);
-
-    const handleScroll = () => {
-      // Ambil ukuran saat ini
-      const scrollLeft = container.scrollLeft;
-      const scrollWidth = container.scrollWidth;
-      const clientWidth = container.clientWidth;
-
-      const oneSetWidth = scrollWidth / 2;
-
-      // LOGIKA LOOPING (Teleportasi)
-      // Kita beri sedikit 'buffer' (10px) agar tidak terlalu sensitif di ujung
-      if (scrollLeft <= 10) {
-        container.scrollLeft = oneSetWidth + scrollLeft;
-      } else if (scrollLeft >= scrollWidth - clientWidth - 10) {
-        container.scrollLeft = scrollLeft - oneSetWidth;
-      }
-    };
-
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // FUNGSI NAVIGASI DENGAN ANTI-SPAM
-  const scrollGallery = (direction) => {
-    // 1. Jika sedang animasi, hentikan (jangan proses klik baru)
-    if (isAnimating.current) return;
-
-    if (containerRef.current) {
-      // 2. Set status sedang berjalan
-      isAnimating.current = true;
-
-      containerRef.current.scrollBy({
-        left: direction * 300, // Jarak geser
-        behavior: "smooth",
-      });
-
-      // 3. Buka kunci tombol setelah 500ms (durasi rata-rata smooth scroll)
-      setTimeout(() => {
-        isAnimating.current = false;
-      }, 500);
-    }
-  };
+  // Ambil maksimal 10 data saja
+  const displayedGallery = galleryData.slice(0, 5);
 
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-white relative">
-      <div className="max-w-[1000px] mx-auto text-center mb-6">
-        <h3 className="text-3xl font-bold border-b-4 border-travel-pink inline-block pb-2">
-          Our Gallery
-        </h3>
-      </div>
-
-      <div className="relative w-full max-w-[1200px] mx-auto group px-4">
-        {/* Tombol Kiri */}
-        <button
-          onClick={() => scrollGallery(-1)}
-          className="absolute left-6 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white w-10 h-10 rounded-full hidden md:flex items-center justify-center hover:bg-travel-pink transition active:scale-90"
-        >
-          &#10094;
-        </button>
-
-        {/* Container Scroll */}
-        {/* Tambahkan class 'scrollbar-hide' yang sudah kita buat tadi */}
-        <div
-          ref={containerRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide py-4"
-          style={{ scrollBehavior: "auto" }}
-        >
-          {/* 2. GUNAKAN DATA DARI FILE IMPORT */}
-          {/* Kita tetap menduplikasi array [...data, ...data] agar fitur Infinite Loop bekerja */}
-          {[...galleryData, ...galleryData].map((src, index) => (
-            <div
-              key={index}
-              className="min-w-[280px] h-[180px] rounded-lg overflow-hidden shadow-lg flex-shrink-0 cursor-pointer hover:scale-105 transition-transform duration-300"
-              onClick={() => setSelectedImage(src)}
-            >
-              <img
-                src={src}
-                alt={`Gallery ${index}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+    <section id="gallery" className="py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-6">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h5 className="text-travel-pink font-bold uppercase tracking-widest text-sm mb-2">
+            Our Memories
+          </h5>
+          <h3 className="font-serif text-4xl md:text-5xl text-travel-dark">
+            Gallery Perjalanan
+          </h3>
         </div>
 
-        {/* Tombol Kanan */}
-        <button
-          onClick={() => scrollGallery(1)}
-          className="absolute right-6 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white w-10 h-10 rounded-full hidden md:flex items-center justify-center hover:bg-travel-pink transition active:scale-90"
-        >
-          &#10095;
-        </button>
+        {/* --- CAROUSEL SECTION --- */}
+        <div className="mb-12">
+          <Swiper
+            // Konfigurasi Module
+            modules={[Autoplay, Pagination]}
+            spaceBetween={20} // Jarak antar foto
+            loop={true} // Agar bisa muter terus (infinite)
+            autoplay={{
+              delay: 3000, // Geser otomatis tiap 3 detik
+              disableOnInteraction: false, // Tetap autoplay walau disentuh
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true, // Titik navigasi di bawah mengecil dinamis
+            }}
+            // Konfigurasi Responsif (Jumlah foto per layar)
+            breakpoints={{
+              320: { slidesPerView: 1 }, // HP: 1 Foto
+              640: { slidesPerView: 2 }, // Tablet Kecil: 2 Foto
+              1024: { slidesPerView: 4 }, // Laptop: 4 Foto
+            }}
+            className="pb-14" // Padding bawah untuk tempat titik-titik pagination
+            style={{
+              "--swiper-pagination-color": "#ff4081", // Ganti warna titik jadi Pink
+              "--swiper-pagination-bullet-inactive-color": "#999999",
+            }}
+          >
+            {displayedGallery.map((src, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className="relative group h-[300px] overflow-hidden rounded-xl cursor-pointer shadow-lg"
+                  onClick={() => setSelectedImage(src)}
+                >
+                  <img
+                    src={src}
+                    alt={`Gallery ${index}`}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Overlay Gelap saat hover */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold text-lg tracking-widest">
+                      VIEW
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Tombol View All */}
+        <div className="text-center">
+          <Link
+            to="/gallery"
+            className="inline-block border-2 border-travel-dark text-travel-dark px-10 py-3 rounded-full font-semibold hover:bg-travel-dark hover:text-white transition-all duration-300"
+          >
+            View All Gallery
+          </Link>
+        </div>
       </div>
-      {/* Ganti kode popup manual dengan ini: */}
+
+      {/* Popup Image (Tetap jalan) */}
       <Popup src={selectedImage} onClose={() => setSelectedImage(null)} />
     </section>
   );

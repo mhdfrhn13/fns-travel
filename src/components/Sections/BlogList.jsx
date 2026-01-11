@@ -54,12 +54,6 @@ const BlogList = () => {
 
                 {/* Tombol Bawah */}
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                  <span className="text-lg font-bold text-travel-dark">
-                    $ Price{" "}
-                    <span className="text-xs font-normal text-gray-400">
-                      / person
-                    </span>
-                  </span>
                   <Link
                     to={`/itinerary/${item.id}`}
                     className="bg-travel-dark text-white px-5 py-2 rounded-full text-sm hover:bg-travel-pink transition-colors"
